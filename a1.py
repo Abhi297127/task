@@ -1,52 +1,40 @@
 import os
 
-# Define the full folder structure
-folders = [
-    "FullStackInternChallenge/backend/src/middleware",
-    "FullStackInternChallenge/backend/src/routes",
-    "FullStackInternChallenge/backend/src/utils",
-    "FullStackInternChallenge/frontend/public",
-    "FullStackInternChallenge/frontend/src/components",
-    "FullStackInternChallenge/frontend/src/context",
+# Updated backend folder and file paths
+backend_paths = [
+    "backend/src/app.module.ts",
+    "backend/src/main.ts",
+    "backend/src/auth/auth.module.ts",
+    "backend/src/auth/auth.service.ts",
+    "backend/src/auth/auth.controller.ts",
+    "backend/src/auth/jwt.strategy.ts",
+    "backend/src/users/users.module.ts",
+    "backend/src/users/users.service.ts",
+    "backend/src/users/users.controller.ts",
+    "backend/src/users/entities/user.entity.ts",
+    "backend/src/users/dto/create-user.dto.ts",
+    "backend/src/users/dto/update-password.dto.ts",
+    "backend/src/stores/stores.module.ts",
+    "backend/src/stores/stores.service.ts",
+    "backend/src/stores/stores.controller.ts",
+    "backend/src/stores/entities/store.entity.ts",
+    "backend/src/ratings/ratings.module.ts",
+    "backend/src/ratings/ratings.service.ts",
+    "backend/src/ratings/ratings.controller.ts",
+    "backend/src/ratings/entities/rating.entity.ts",
+    "backend/src/common/guards/roles.guard.ts",
+    "backend/src/common/decorators/roles.decorator.ts",
+    "backend/src/common/enums/role.enum.ts",
+    "backend/src/common/constants/index.ts",
+    "backend/ormconfig.ts",
+    "backend/package.json",
+    "backend/tsconfig.json",
 ]
 
-# Define the files to create inside folders
-files = {
-    "FullStackInternChallenge/backend/src/middleware/auth.js": "",
-    "FullStackInternChallenge/backend/src/routes/admin.js": "",
-    "FullStackInternChallenge/backend/src/routes/user.js": "",
-    "FullStackInternChallenge/backend/src/routes/store.js": "",
-    "FullStackInternChallenge/backend/src/utils/validation.js": "",
-    "FullStackInternChallenge/backend/src/db.js": "",
-    "FullStackInternChallenge/backend/.env": "",
-    "FullStackInternChallenge/backend/package.json": "",
-    "FullStackInternChallenge/backend/server.js": "",
-    "FullStackInternChallenge/frontend/public/index.html": "",
-    "FullStackInternChallenge/frontend/public/favicon.ico": "",
-    "FullStackInternChallenge/frontend/src/components/Login.js": "",
-    "FullStackInternChallenge/frontend/src/components/Signup.js": "",
-    "FullStackInternChallenge/frontend/src/components/AdminDashboard.js": "",
-    "FullStackInternChallenge/frontend/src/components/UserDashboard.js": "",
-    "FullStackInternChallenge/frontend/src/components/StoreOwnerDashboard.js": "",
-    "FullStackInternChallenge/frontend/src/components/ProtectedRoute.js": "",
-    "FullStackInternChallenge/frontend/src/context/AuthContext.js": "",
-    "FullStackInternChallenge/frontend/src/App.js": "",
-    "FullStackInternChallenge/frontend/src/index.js": "",
-    "FullStackInternChallenge/frontend/src/styles.css": "",
-    "FullStackInternChallenge/frontend/.env": "",
-    "FullStackInternChallenge/frontend/package.json": "",
-    "FullStackInternChallenge/database.sql": "",
-}
+for path in backend_paths:
+    folder = os.path.dirname(path)
+    os.makedirs(folder, exist_ok=True)  # Create folders if not exist
+    with open(path, 'w') as f:
+        pass  # Create empty file
 
-# Create folders
-for folder in folders:
-    os.makedirs(folder, exist_ok=True)
-    print(f"Created folder: {folder}")
-
-# Create files
-for filepath, content in files.items():
-    with open(filepath, 'w') as f:
-        f.write(content)
-    print(f"Created file: {filepath}")
-
-print("\nProject structure created successfully!")
+print("Updated backend folder and file structure created successfully.")
